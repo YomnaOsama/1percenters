@@ -3,9 +3,13 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\www",
-    "\\www\\build"
+    "\\src\\pages",
+    "\\src\\pages\\film",
+    "\\src\\pages\\home",
+    "\\src\\pages\\search",
+    "\\src\\providers",
+    "\\src\\providers\\api"
   ],
-  "SelectedNode": "\\src\\pages",
+  "SelectedNode": "\\src\\pages\\home\\home.ts",
   "PreviewInSolutionExplorer": false
 }

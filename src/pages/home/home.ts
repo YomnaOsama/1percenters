@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
-import { HttpClient } from "@angular/common/http";
+import { ApiProvider } from "./../../providers/api/api";
+
 
 /**
  * Generated class for the HomePage page.
@@ -15,13 +16,27 @@ import { HttpClient } from "@angular/common/http";
   templateUrl: "home.html",
 })
 export class HomePage {
-	tab0 = "HomePage";
+	films: any;
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
+	search() {
+		this.navCtrl.push("SearchPage");
 	}
 
-  ionViewDidLoad() {
-	  console.log("ionViewDidLoad HomePage");
-  }
+	constructor(public navCtrl: NavController, public navParams: NavParams, public apiProvider: ApiProvider) {
+		this.init();
+	}
+
+	async init() {
+		await this.apiProvider.getFilms().subscribe(response => {
+			this.films = response;
+			this.films = this.films.data;
+			//console.clear();
+			console.log("Films: ", this.films);
+		});
+	}
+
+	openDetails(film) {
+		this.navCtrl.push("FilmPage", { film: film });
+	}
 
 }
