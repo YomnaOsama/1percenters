@@ -1,9 +1,5 @@
 import { Component, ViewChild } from "@angular/core";
-
 import { Platform, MenuController, Nav } from "ionic-angular";
-
-import { HomePage } from "../pages/home/home";
-
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 
@@ -15,8 +11,8 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HomePage the root (or first) page
-  rootPage = HomePage;
-  pages: Array<{title: string, component: any}>;
+  rootPage: string = "HomePage";
+  pages: Array<{title: string, component: string}>;
 
   constructor(
     public platform: Platform,
@@ -26,10 +22,8 @@ export class MyApp {
   ) {
     this.initializeApp();
 
-    // set our app's pages
-    this.pages = [
-      { title: "Films", component: HomePage }
-    ];
+    // set our app's pages (again using Ionic lazy loading to improve load times)
+	this.pages = [{ title: "Films", component: "HomePage" }];
   }
 
   initializeApp() {
