@@ -21,18 +21,25 @@
 			Search
 		</div>
 	</button>
-	<ion-item>
-		<ion-badge margin-top>Page {{films?.page_number}}</ion-badge>
-		<button ion-button outline small>></button>
-	</ion-item>
-	<ion-card *ngFor="let film of films?.movies">
+	<ion-card *ngFor="let film of items">
 		<ion-card-content>
-			<ion-card-title>
-				{{film?.title_english}}
+			<ion-card-title text-center text-wrap>
+				{{film?.title_long}}
 			</ion-card-title>
-			<img src="{{film?.medium_cover_image}}" alt="{{film?.title_english}}" />
+			<img src="{{film?.medium_cover_image}}" alt="{{film?.title_english}}"/>
+			<ion-badge item-end margin-top>IMDb: {{film?.rating}}</ion-badge>
+			<rating [(ngModel)]="film.rating" 
+				readOnly="true"
+		        max="10"
+		        emptyStarIconName="star-outline"
+		        halfStarIconName="star-half" 
+		        starIconName="star"
+		        nullable="false">				 
+			</rating>
 			<button ion-button full round (click)="openDetails(film)">View details</button>
 		</ion-card-content>
 	</ion-card>
-	<ion-badge>Page {{films?.page_number}}</ion-badge>
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
 </ion-content>

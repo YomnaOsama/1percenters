@@ -8,9 +8,12 @@
 
   <ion-content>
     <ion-list>
-      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
+	    <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+		    <h2>
+		    <ion-icon name="film" margin-right></ion-icon>
+		    {{p.title}}
+			</h2>
+	    </button>
     </ion-list>
   </ion-content>
 
