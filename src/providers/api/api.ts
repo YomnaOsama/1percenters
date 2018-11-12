@@ -14,11 +14,16 @@ export class ApiProvider {
 
 	}
 
-	getFilms() {
-		return this.http.get("https://yts.am/api/v2/list_movies.json");
+	getFilms(args : string = "") {
+		return this.http.get(`https://yts.am/api/v2/list_movies.json${args}`);
 	}
 
 	getSearch(search : string = "") {
 		return this.http.get(`https://yts.am/api/v2/list_movies.json?query_term=${search}`);
 	}
+
+	getComments(id : number) {
+		this.http.get(`https://yts.am/api/v2/movie_comments.json?movie_id=${id}`);
+	}
+
 }

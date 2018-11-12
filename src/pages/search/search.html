@@ -18,11 +18,20 @@
 	<ion-card *ngFor="let item of query?.data?.movies">
 		<button ion-item (click)="openDetails(item)">
 			<ion-card-content>
-				<ion-card-title>
-					{{ item.title_long }}
+				<ion-card-title text-center text-wrap>
+					{{ item?.title_long }}
 				</ion-card-title>
-				<img src="{{ item?.medium_cover_image }}" alt="{{ item?.title_english }}" />
+				<img src="{{ item?.medium_cover_image }}" alt="{{ item?.title_english }}"/>
 			</ion-card-content>
 		</button>
+		<ion-badge item-end margin-left>IMDb: {{item?.rating}}</ion-badge>
+		<rating [(ngModel)]="item.rating" 
+		        readOnly="true"
+		        max="10"
+		        emptyStarIconName="star-outline"
+		        halfStarIconName="star-half" 
+		        starIconName="star"
+		        nullable="false">				 
+		</rating>
 	</ion-card>
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { ApiProvider } from "./../../providers/api/api";
 
 /**
  * Generated class for the FilmPage page.
@@ -14,10 +15,11 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
   templateUrl: "film.html",
 })
 export class FilmPage {
-film : any;
+	film: any;
 
-	constructor(public navCtrl: NavController, public navParams: NavParams) {
+	constructor(public navCtrl: NavController, public navParams: NavParams, apiProvider : ApiProvider) {
 		this.film = this.navParams.get("film");
+		console.log("Comments: ", apiProvider.getComments(this.film.id)); //Must be logged in to retrieve comments!
 	}
 
 }

@@ -5,18 +5,27 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>{{ film.title_english }}</ion-title>
-  </ion-navbar>
-
+	<ion-navbar>
+		<ion-title text-center text-wrap>{{ film?.title_long }}</ion-title>
+	</ion-navbar>
 </ion-header>
-
 
 <ion-content padding>
 	<ion-card>
 		<ion-card-content>
-			{{ film.summary }}
+			<img src="{{film?.medium_cover_image}}" alt="{{film?.title_long}}" margin-bottom/>
+			<p text-wrap>
+			{{ film?.summary }}
+			</p>
+			<ion-badge item-end margin-top>IMDb: {{film?.rating}}</ion-badge>
+			<rating [(ngModel)]="film.rating" 
+			        readOnly="true"
+			        max="10"
+			        emptyStarIconName="star-outline"
+			        halfStarIconName="star-half" 
+			        starIconName="star"
+			        nullable="false">				 
+			</rating>
 		</ion-card-content>
 	</ion-card>
 </ion-content>
