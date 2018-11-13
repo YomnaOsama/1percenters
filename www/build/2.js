@@ -32,6 +32,7 @@ var FilmPageModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__film__["a" /* FilmPage */]),
                 __WEBPACK_IMPORTED_MODULE_3_ionic2_rating__["a" /* Ionic2RatingModule */]
             ],
+            exports: [__WEBPACK_IMPORTED_MODULE_2__film__["a" /* FilmPage */]]
         })
     ], FilmPageModule);
     return FilmPageModule;
@@ -312,14 +313,16 @@ var FilmPage = /** @class */ (function () {
         this.navParams = navParams;
         this.film = this.navParams.get("film");
         console.log("Comments: ", apiProvider.getComments(this.film.id)); //Must be logged in to retrieve comments!
+        console.log("Suggestions: ", apiProvider.getSuggestions(this.film.id));
     }
     FilmPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: "page-film",template:/*ion-inline-start:"C:\Users\megad\source\repos\YomnaOsama\1percenters\src\pages\film\film.html"*/'<!--\n\n  Generated template for the FilmPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n	<ion-navbar>\n\n		<ion-title text-center text-wrap>{{ film?.title_long }}</ion-title>\n\n	</ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n	<ion-card>\n\n		<ion-card-content>\n\n			<img src="{{film?.medium_cover_image}}" alt="{{film?.title_long}}" margin-bottom/>\n\n			<p text-wrap>\n\n			{{ film?.summary }}\n\n			</p>\n\n			<ion-badge item-end margin-top>IMDb: {{film?.rating}}</ion-badge>\n\n			<rating [(ngModel)]="film.rating" \n\n			        readOnly="true"\n\n			        max="10"\n\n			        emptyStarIconName="star-outline"\n\n			        halfStarIconName="star-half" \n\n			        starIconName="star"\n\n			        nullable="false">				 \n\n			</rating>\n\n		</ion-card-content>\n\n	</ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\megad\source\repos\YomnaOsama\1percenters\src\pages\film\film.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* ApiProvider */]) === "function" && _c || Object])
     ], FilmPage);
     return FilmPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=film.js.map

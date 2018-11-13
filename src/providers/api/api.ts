@@ -26,4 +26,8 @@ export class ApiProvider {
 		this.http.get(`https://yts.am/api/v2/movie_comments.json?movie_id=${id}`);
 	}
 
+	getSuggestions(id : number) {
+		this.http.get(`https://yts.am/api/v2/movie_suggestions.json?movie_id=${id}`);
+	}
+
 }
