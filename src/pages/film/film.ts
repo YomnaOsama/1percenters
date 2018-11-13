@@ -20,6 +20,7 @@ export class FilmPage {
 	constructor(public navCtrl: NavController, public navParams: NavParams, apiProvider : ApiProvider) {
 		this.film = this.navParams.get("film");
 		console.log("Comments: ", apiProvider.getComments(this.film.id)); //Must be logged in to retrieve comments!
+		console.log("Suggestions: ", apiProvider.getSuggestions(this.film.id));
 	}
 
 }

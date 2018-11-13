@@ -89,11 +89,15 @@ var ApiProvider = /** @class */ (function () {
     ApiProvider.prototype.getComments = function (id) {
         this.http.get("https://yts.am/api/v2/movie_comments.json?movie_id=" + id);
     };
+    ApiProvider.prototype.getSuggestions = function (id) {
+        this.http.get("https://yts.am/api/v2/movie_suggestions.json?movie_id=" + id);
+    };
     ApiProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
     ], ApiProvider);
     return ApiProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=api.js.map
