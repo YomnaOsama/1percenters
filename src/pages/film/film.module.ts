@@ -11,6 +11,7 @@ import { Ionic2RatingModule } from "ionic2-rating";
   imports: [
 	  IonicPageModule.forChild(FilmPage),
 	  Ionic2RatingModule
-  ],
+	],
+  exports: [FilmPage]
 })
 export class FilmPageModule {}
